@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>ceiborg</title>
+  <meta name="description" content="">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+  <link rel="stylesheet" href="app.css?19">
+</head>
+<body>
+  <div id="bg">
+  </div>
+  <div id="ct">
+    <svg viewBox="0 0 80 80">
+    	<linearGradient id="lg">
+    		<stop  offset="0"   stop-color="var(--cs1)" />
+    		<stop  offset="0.5" stop-color="var(--cs2)" />
+    		<stop  offset="1"   stop-color="var(--cs3)" />
+    	</linearGradient>
+    	<path fill="url(#lg)" d="M0,32c0,8,3,16,9,22c6,6,14,9,22,9h16v0c4,0,8,1,11,4c3,3,4,7,4,11h0V64v0V32c0-8-3-16-9-23C48,3,40,0,32,0H0v32H0zM19,5c7,0,13,6,13,13c0,7-6,13-13,13c-7,0-13-6-13-13C5,11,11,5,19,5z"/>
+    </svg>
+    <div id="hm">
+      <p class="lead">
+        <strong>Sinapsis</strong> let's you reflect your mood on the dress!
+      </p>
+      <button>Try it!</button>
+      <p>
+        <br/><br/>
+        follow us on IG: @_ceiborg_
+      </p>    </div>
+    <div id="ctls" style="display:none;">
+      <h2>How do you feel?</h2>
+      <label>Joyfull</label>
+      <input id="j" type="range" min="0" max="255" step="1">
+      <label>Furious</label>
+      <input id="f" type="range" min="0" max="255" step="1">
+      <label>Stressed</label>
+      <input id="s" type="range" min="0" max="255" step="1">
+    </div>
+  </div>
+  <script src="app.js?6"></script>
+</body>
+</html>

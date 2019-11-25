@@ -1,0 +1,170 @@
+body, html {
+  position: fixed;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+body {
+  --cs1: #54BEFF;
+  --cs2: #620094;
+  --cs3: #FF3F7A;
+  touch-action: manipulation;
+  font-family: monospace;
+}
+
+#bg {
+  --hc: 0;
+  --hw: 360;
+  --ll: 50%;
+  --sat: 100%;
+  --ss: 1;
+  --sst: 5s;
+  top: 0;
+  position: absolute;
+  z-index: -1;
+  background: repeating-linear-gradient(hsl(calc(var(--hc) + var(--hw) * 0.000), var(--sat), var(--ll)) 0%,
+    hsl(calc(var(--hc) + var(--hw) * 0.167), var(--sat), var(--ll)) 8.33%,
+    hsl(calc(var(--hc) + var(--hw) * 0.333), var(--sat), var(--ll)) 16.7%,
+    hsl(calc(var(--hc) + var(--hw) * 0.500), var(--sat), var(--ll)) 25%,
+    hsl(calc(var(--hc) + var(--hw) * 0.667), var(--sat), var(--ll)) 33.3%,
+    hsl(calc(var(--hc) + var(--hw) * 0.833), var(--sat), var(--ll)) 41.7%,
+    hsl(calc(var(--hc) + var(--hw) * 1.000), var(--sat), var(--ll)) 50%,
+    hsl(calc(var(--hc) + var(--hw) * 0.833), var(--sat), var(--ll)) 58.3%,
+    hsl(calc(var(--hc) + var(--hw) * 0.667), var(--sat), var(--ll)) 66.7%,
+    hsl(calc(var(--hc) + var(--hw) * 0.500), var(--sat), var(--ll)) 75%,
+    hsl(calc(var(--hc) + var(--hw) * 0.333), var(--sat), var(--ll)) 83.3%,
+    hsl(calc(var(--hc) + var(--hw) * 0.167), var(--sat), var(--ll)) 91.7%,
+    hsl(calc(var(--hc) + var(--hw) * 0.000), var(--sat), var(--ll)) 100%);
+  width: 100%;
+  height: calc(1800% - 1600%*(var(--ss)));
+  background-size: 100% 50%;
+  background-repeat: repeat;
+  animation: slide var(--sst) infinite linear;
+}
+
+.ios #bg {
+  animation: none;
+  height: calc(200% - 100%*(var(--ss)));
+}
+
+input[type=range] {
+  -webkit-appearance: none;
+  width: 100%;
+  margin: 3vh 0;
+  background: none;
+}
+
+input[type=range]:focus {
+  outline: none;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 2vh;
+  cursor: pointer;
+  background: var(--cs2);
+  border-radius: 1vh;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  height: 8vh;
+  width: 8vh;
+  border-radius: 10%;
+  background: var(--cs3);
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -3vh;
+}
+
+#hm, #ct {
+  width: 80vmin;
+  margin: 10vmin auto;
+  text-align: center;
+}
+
+#hm p {
+  margin-top: 3vh;
+  font-size: calc(16px + 14 * ((100vw - 320px) / 680));
+  animation: textglitch 4s infinite alternate;
+  user-select: none;
+  text-shadow: 2px 2px 4px #ccc;
+  color: #333;
+}
+
+#hm p.lead{
+  font-size: calc(20px + 18 * ((100vw - 320px) / 680));  
+}
+
+#hm button {
+  cursor: pointer;
+  animation: textglitch 4s infinite alternate;
+  font-size: calc(28px + 18 * ((100vw - 320px) / 680));
+  padding: 2vh;
+  border: 3px dashed white;
+  color:  white;
+  font-weight: bold;
+  background: var(--cs3);
+  box-shadow: 6px 6px 3px black;
+  }
+
+svg {
+  width: 50%;
+}
+
+h2 {
+  font-size: calc(28px + 18 * ((100vw - 320px) / 680));
+  animation: textglitch 2s infinite alternate;
+  padding-bottom: 4vh;
+  background: linear-gradient(to right, var(--cs1) 0%, var(--cs2) 50%, var(--cs3) 100%);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  user-select: none;
+}
+
+label {
+  display: block;
+  margin-top: 3vh;
+  font-size: calc(16px + 14 * ((100vw - 320px) / 680));
+  animation: textglitch 4s infinite alternate;
+  user-select: none;
+  text-shadow: 2px 2px 4px #ccc;
+  color: #333;
+}
+
+@keyframes textglitch {
+  0% {
+    text-decoration: line-through;
+    text-transform: uppercase;
+  }
+
+  10% {
+    text-transform: capitalize;
+  }
+
+  40% {
+    font-style: bold;
+    text-decoration: underline;
+    font-style: italic;
+  }
+
+  50% {
+    text-transform: lowercase;
+    //color: #ccc;
+    text-shadow: none;
+  }
+}
+
+@keyframes slide {
+  0% {
+    transform: translateY(0%);
+  }
+
+  100% {
+    transform: translateY(-50%);
+  }
+}
